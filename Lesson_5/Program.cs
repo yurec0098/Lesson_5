@@ -8,7 +8,7 @@ namespace Lesson_5
 		static void Main(string[] args)
 		{
 			File.AppendAllText("startup.txt", $"{DateTime.Now:T}\n");
-			Console.WriteLine("При запускев файл оооо было записано текущее время");
+			Console.WriteLine("При запуске в файл startup.txt было записано текущее время");
 
 			Console.ReadLine();
 		}
