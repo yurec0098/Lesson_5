@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Lesson_5
 {
@@ -6,7 +7,10 @@ namespace Lesson_5
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			File.AppendAllText("startup.txt", $"{DateTime.Now:T}\n");
+			Console.WriteLine("При запускев файл оооо было записано текущее время");
+
+			Console.ReadLine();
 		}
 	}
 }
