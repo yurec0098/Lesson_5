@@ -109,7 +109,7 @@ namespace Lesson_5
 			int value;
 			var pos = Console.GetCursorPosition();
 			Console.WriteLine(text);
-			while (!(int.TryParse(Console.ReadLine(), out value) && value >= min && value <= max))
+			while (!int.TryParse(Console.ReadLine(), out value) || !(value >= min && value <= max))
 			{
 				ClearConsoleLines(pos.Left, pos.Top, 2);
 				Console.WriteLine($"Повторим... {text}");
@@ -134,6 +134,8 @@ namespace Lesson_5
 		{
 			var js_wr_opt = new JsonWriterOptions()
 			{
+				//	Мы любим когда в текстовых файлам мы можем прочитать, что там написано
+				//	Поэтому добавим привычные нам символы
 				Encoder = JavaScriptEncoder.Create(UnicodeRanges.Cyrillic, UnicodeRanges.BasicLatin, UnicodeRanges.LetterlikeSymbols),
 				Indented = true
 			};
