@@ -129,7 +129,7 @@ namespace Lesson_5
 
 		#region Serialize / Deserialize
 		#region JS
-		static string fileNameJS = "todo.json";
+		static string fileNameJS = "tasks.json";
 		private static void SerializeJS(ObservableCollection<ToDo> obj)
 		{
 			var js_wr_opt = new JsonWriterOptions()
@@ -153,7 +153,7 @@ namespace Lesson_5
 		#endregion
 
 		#region XML
-		static string fileNameXML = "todo.xml";
+		static string fileNameXML = "tasks.xml";
 		private static void SerializeXML(ObservableCollection<ToDo> obj)
 		{
 			var namespaces = new XmlSerializerNamespaces(new[] { new XmlQualifiedName("", "") });
@@ -172,7 +172,7 @@ namespace Lesson_5
 
 		#region Bin
 		#pragma warning disable SYSLIB0011 // Тип или член устарел
-		static string fileNameBin = "todo.bin";
+		static string fileNameBin = "tasks.bin";
 		private static void SerializeBin(ObservableCollection<ToDo> obj)
 		{
 			using (var fs = File.Create(fileNameBin))
