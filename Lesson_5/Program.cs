@@ -10,15 +10,16 @@ namespace Lesson_5
 		{
 			var path = ReadDirectoryPath("Введите путь к существующей директории:");
 
+			//	При переключении SearchOption в положение AllDirectories будет вывод всех папок и файлов рекурсивно, без возможности обработки исключений
 			File.WriteAllLines("FoldersFiles.txt", Directory.GetFileSystemEntries(path, "*", SearchOption.TopDirectoryOnly));
 
 			using (var file = File.Create("FoldersFilesRecursive.txt"))
 			using (var sw = new StreamWriter(file))
-				WriteFilesRecursive(sw, path);
+				WriteFilesRecursive(sw, path);	//	string
 
 			using (var file = File.Create("FoldersFilesRecursive2.txt"))
 			using (var sw = new StreamWriter(file))
-				WriteFilesRecursive(sw, new DirectoryInfo(path));
+				WriteFilesRecursive(sw, new DirectoryInfo(path));   //	DirectoryInfo
 
 			Console.ReadLine();
 		}
