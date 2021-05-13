@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Lesson_5
 {
@@ -6,7 +8,18 @@ namespace Lesson_5
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine("Hello World!");
+			Console.WriteLine("Введите числа 0-255, разделяя пробелом (не соответствующие данные будут игнорироваться):");
+			string numbers = Console.ReadLine();
+
+			var list = new List<byte>();
+			foreach (var x in numbers.Split(' '))
+				if (byte.TryParse(x, out byte tmp_val))
+					list.Add(tmp_val);
+
+			File.WriteAllBytes("binary.bin", list.ToArray());
+			Console.WriteLine($"В файл binary.bin было записано {list.Count} байт");
+			Console.WriteLine(string.Join(", ", list));
+			Console.ReadLine();
 		}
 	}
 }
